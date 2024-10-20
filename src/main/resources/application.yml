@@ -20,6 +20,13 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
 
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
   data:
     mongodb:
       uri: mongodb://mongo:mongo@localhost:10002/local?authSource=admin
+

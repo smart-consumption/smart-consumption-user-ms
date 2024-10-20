@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.unicauca</groupId>
-	<artifactId>smart_consumption</artifactId>
+	<artifactId>smart-consumption-user-ms</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>smart_consumption</name>
-	<description>Alicacion de buqueda de ofertas locales para promover el conusmo inteligente</description>
+	<name>smart-consumption-user-ms</name>
+	<description>Aplicacion de buqueda de ofertas locales para promover el conusmo inteligente</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -92,6 +92,17 @@
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>2.6.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<version>4.1.3</version>
 		</dependency>
 	</dependencies>
 
