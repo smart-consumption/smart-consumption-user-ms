@@ -5,7 +5,7 @@ server:
 
 spring:
   application:
-    name: smart-consumption-review-ms
+    name: smart-consumption-user-ms
 
   datasource:
     url: ${SPRING_DATASOURCE_URL}
