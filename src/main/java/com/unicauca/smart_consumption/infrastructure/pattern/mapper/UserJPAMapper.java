@@ -33,6 +33,7 @@ public interface UserJPAMapper extends EntityMapper<UserJPAEntity, User>{
        User user = new User();
        user.setId(dto.getId());
        user.setUsername(dto.getUsername());
+       user.setName(dto.getName());
        ArrayList<Product> products = dto.getWatchList().stream().map(p -> {
            Product product = new Product();
            product.setId(p.getId());

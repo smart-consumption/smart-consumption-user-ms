@@ -38,7 +38,9 @@ public class UserWebApi {
 
     @PostMapping
     public ResponseEntity<ResponseDto<UserDto>> createUser(@RequestBody UserDto userDto) {
+        System.out.println(userDto.toString());
         User user = userMapper.toDomain(userDto);
+        System.out.println(user.toString());
         ResponseDto<User> userResponse = userService.createUser(user);
         UserDto createUserDto = userMapper.toTarget(userResponse.getData());
         return new ResponseDto<>(userResponse.getStatus(),
