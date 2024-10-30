@@ -13,9 +13,12 @@ import lombok.ToString;
 public class Product {
   private String id;
   private String name;
-  private Category category;
-  private Detail detail;
-  private SustainabilityCriteria sustainabilityCriteria;
   private ProductStatus status;
   private double price;
+
+  public void applyDiscount(double percentage) {
+    if (percentage > 0 && percentage <= 100) {
+      this.price -= this.price * (percentage / 100);
+    }
+  }
 }

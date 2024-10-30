@@ -15,7 +15,8 @@ public class ProductListener {
 
     private final IProductRepository productRepository;
 
-    @RabbitListener(queues = RabbitMQConfig.PRODUCT_CREATED_QUEUE)
+    @RabbitListener(queues = {RabbitMQConfig.PRODUCT_CREATED_QUEUE,
+            RabbitMQConfig.PRODUCT_UPDATED_QUEUE})
     public void receiveCreatedProduct(Product product) {
         System.out.println("Product received: " + product);
         productRepository.createProduct(product);

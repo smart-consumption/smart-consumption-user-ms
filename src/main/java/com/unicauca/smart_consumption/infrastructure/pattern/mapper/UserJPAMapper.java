@@ -39,14 +39,7 @@ public interface UserJPAMapper extends EntityMapper<UserJPAEntity, User>{
            product.setId(p.getId());
            product.setName(p.getName());
            product.setPrice(p.getPrice());
-           product.setCategory(new Category(p.getCategory().getCategoryName()));
-           product.setDetail(new Detail(p.getDetail().getDescription(), p.getDetail().getSpecifications()));
            product.setStatus(p.getStatus());
-           product.setSustainabilityCriteria(new SustainabilityCriteria(
-                   p.getSustainabilityCriteria().getCarbonFootprint(),
-                   p.getSustainabilityCriteria().getEnergyEfficiency(),
-                   p.getSustainabilityCriteria().getResourceUsage(),
-                   p.getSustainabilityCriteria().getWasteManagement()));
            return product;
        }).collect(Collectors.toCollection(ArrayList::new));
        user.setWatchList(products);

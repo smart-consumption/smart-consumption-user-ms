@@ -25,32 +25,6 @@ public class ProductJpaRepositoryAdapter implements IProductRepository {
     }
 
     @Override
-    public Product updateProduct(String id, Product product) {
-        ProductJpaEntity productJpaEntity = productJpaRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Product not found with id " + id));
-
-        CategoryEmbeddable category = new CategoryEmbeddable();
-        category.setCategoryName(product.getCategory().getCategoryName());
-
-        DetailEmbeddable detail = new DetailEmbeddable();
-        detail.setDescription(product.getDetail().getDescription());
-        detail.setSpecifications(product.getDetail().getSpecifications());
-
-        SustainabilityCriteriaEmbeddable sustainabilityCriteria = getSustainabilityCriteriaEmbeddable(product);
-
-        productJpaEntity.setName(product.getName());
-        productJpaEntity.setCategory(category);
-        productJpaEntity.setDetail(detail);
-        productJpaEntity.setSustainabilityCriteria(sustainabilityCriteria);
-        productJpaEntity.setStatus(product.getStatus());
-        productJpaEntity.setPrice(product.getPrice());
-        ProductJpaEntity updatedEntity = productJpaRepository.save(productJpaEntity);
-        final var productUpdated = productPostgresMapper.toDomain(updatedEntity);
-        return productUpdated;
-                
-    }
-
-    @Override
     public void deleteProduct(String id) {
         if (productJpaRepository.existsById(id)) {
             productJpaRepository.deleteById(id);
@@ -77,15 +51,4 @@ public class ProductJpaRepositoryAdapter implements IProductRepository {
         return this.productJpaRepository.findAllById(ids).
             stream().map(productPostgresMapper::toDomain).toList();
     }
-
-    private static SustainabilityCriteriaEmbeddable getSustainabilityCriteriaEmbeddable(Product product) {
-        SustainabilityCriteriaEmbeddable sustainabilityCriteria = new SustainabilityCriteriaEmbeddable();
-        sustainabilityCriteria.setCarbonFootprint(product.getSustainabilityCriteria().getCarbonFootprint());
-        sustainabilityCriteria.setEnergyEfficiency(product.getSustainabilityCriteria().getEnergyEfficiency());
-        sustainabilityCriteria.setResourceUsage(product.getSustainabilityCriteria().getResourceUsage());
-        sustainabilityCriteria.setWasteManagement(product.getSustainabilityCriteria().getWasteManagement());
-        sustainabilityCriteria.setSustainabilityScore(product.getSustainabilityCriteria().getSustainabilityScore());
-        return sustainabilityCriteria;
-    }
-
 }

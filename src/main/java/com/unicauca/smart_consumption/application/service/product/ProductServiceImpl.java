@@ -30,7 +30,7 @@ public class ProductServiceImpl implements IProductService {
 
     @Override
     public ResponseDto<Product> updateProduct(String id, Product product) {
-        Product productUpdated = productCommandRepository.updateProduct(id, product);
+        Product productUpdated = productCommandRepository.createProduct(product);
         return new ResponseDto<>(HttpStatus.OK.value(),
             MessageLoader.getInstance().getMessage(MessagesConstant.IM003), productUpdated);    
     }
