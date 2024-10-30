@@ -1,4 +1,4 @@
-package com.unicauca.smart_consumption.infrastructure.modules.product.dataproviders.command.sql;
+package com.unicauca.smart_consumption.infrastructure.modules.product.dataproviders.jpa;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;

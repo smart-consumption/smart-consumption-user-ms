@@ -1,4 +1,4 @@
-package com.unicauca.smart_consumption.infrastructure.modules.product.dataproviders.common;
+package com.unicauca.smart_consumption.infrastructure.modules.product.dataproviders.jpa;
 
 import jakarta.persistence.Embeddable;
 import lombok.*;

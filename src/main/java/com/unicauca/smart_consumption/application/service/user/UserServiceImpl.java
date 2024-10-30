@@ -3,7 +3,7 @@ package com.unicauca.smart_consumption.application.service.user;
 import com.unicauca.smart_consumption.domain.common.ResponseDto;
 import com.unicauca.smart_consumption.domain.constant.MessagesConstant;
 import com.unicauca.smart_consumption.domain.product.Product;
-import com.unicauca.smart_consumption.domain.product.ports.in.IProductQueryService;
+import com.unicauca.smart_consumption.domain.product.ports.in.IProductService;
 import com.unicauca.smart_consumption.domain.user.User;
 import com.unicauca.smart_consumption.domain.user.ports.in.IUserService;
 import com.unicauca.smart_consumption.domain.user.ports.out.IUserRepository;
@@ -20,7 +20,7 @@ import java.util.List;
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 public class UserServiceImpl implements IUserService {
     private final IUserRepository userRepository;
-    private final IProductQueryService productQueryService;
+    private final IProductService productQueryService;
 
     @Override
     public ResponseDto<User> createUser(User user) {

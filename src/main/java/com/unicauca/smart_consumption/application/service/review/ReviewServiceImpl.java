@@ -2,7 +2,7 @@ package com.unicauca.smart_consumption.application.service.review;
 
 import com.unicauca.smart_consumption.domain.common.ResponseDto;
 import com.unicauca.smart_consumption.domain.constant.MessagesConstant;
-import com.unicauca.smart_consumption.domain.product.ports.in.IProductQueryService;
+import com.unicauca.smart_consumption.domain.product.ports.in.IProductService;
 import com.unicauca.smart_consumption.domain.review.Review;
 import com.unicauca.smart_consumption.domain.review.ports.in.IReviewService;
 import com.unicauca.smart_consumption.domain.review.ports.out.IReviewRepository;
@@ -22,7 +22,7 @@ import java.util.List;
 public class ReviewServiceImpl implements IReviewService {
 
     private final IReviewRepository reviewRepository;
-    private final IProductQueryService productQueryService;
+    private final IProductService productQueryService;
     private final IUserRepository userRepository;
     
 
